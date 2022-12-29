@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ar-quicklook-usdz</title>
+    <script>
+      document.querySelector("#enter-ar").addEventListener("click", (e) => {
+        e.preventDefault();
+        open();
+      });
+
+      // If not in an iframe, put an iframe in
+      if (window.self === window.top) {
+        const iframe = document.querySelector("iframe");
+        if (iframe) {
+          iframe.setAttribute("src", window.location.href);
+        }
+      }
+      //setTimeout(open, 5000);
+
+      function open() {
+        const anchor = document.createElement("a");
+        anchor.setAttribute("rel", "ar");
+        anchor.setAttribute("href", "/3Dmodels/tiger_animation.usdz");
+        // It's necessary to append an image tag here (???!)
+        anchor.appendChild(document.createElement("img"));
+
+        anchor.click();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>ar-quicklook-usdz</h1>
+	<a href="/3Dmodels/toy_drummer.usdz" rel="ar">
+      <img src="/3Dmodels/toy_drummer.jpg" width="200" />
+    </a>
+	<br />
+	<a href="/3Dmodels/toy_car.usdz" rel="ar">
+      <img src="/3Dmodels/toy_car.jpg" width="200" />
+    </a>
+	<br />
+	<a href="/3Dmodels/toy_robot_vintage.usdz" rel="ar">
+      <img src="/3Dmodels/toy_robot_vintage.jpg" width="200" />
+    </a>
+    <br />
+    <a id="enter-ar" href="#">Enter AR</a>
+  </body>
+</html>
